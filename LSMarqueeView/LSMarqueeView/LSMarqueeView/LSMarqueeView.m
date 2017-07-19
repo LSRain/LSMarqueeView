@@ -89,11 +89,11 @@
     
     UILabel *targetLab = [self.lsLabelArr objectAtIndex:_seconds % self.lsLabelArr.count];
     [_backView bringSubviewToFront:targetLab];
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:.3f animations:^{
         targetLab.frame = CGRectMake(10, self.backView.frame.origin.y, self.backView.frame.size.width, self.backView.frame.size.height);
     } completion:^(BOOL finished) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:0.3f animations:^{
+            [UIView animateWithDuration:.3f animations:^{
                 targetLab.frame = CGRectMake(10, -self.backView.frame.size.height, self.backView.frame.size.width, self.backView.frame.size.height);
             } completion:^(BOOL finished) {
                 targetLab.frame = CGRectMake(10, self.backView.frame.size.height, self.backView.frame.size.width, self.backView.frame.size.height);
