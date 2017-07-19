@@ -12,6 +12,9 @@
 		51B6E7771F1F2FB50071D278 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B6E7761F1F2FB50071D278 /* ViewController.m */; };
 		51B6E77C1F1F2FB50071D278 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B6E77B1F1F2FB50071D278 /* Assets.xcassets */; };
 		51B6E77F1F1F2FB50071D278 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B6E77D1F1F2FB50071D278 /* LaunchScreen.storyboard */; };
+		51B6E7891F1F31400071D278 /* LSMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B6E7881F1F31400071D278 /* LSMarqueeView.m */; };
+		51B6E78C1F1F33DA0071D278 /* topup_banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B6E78A1F1F33DA0071D278 /* topup_banner@2x.png */; };
+		51B6E78D1F1F33DA0071D278 /* topup_banner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B6E78B1F1F33DA0071D278 /* topup_banner@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,10 @@
 		51B6E77B1F1F2FB50071D278 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51B6E77E1F1F2FB50071D278 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51B6E7801F1F2FB50071D278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51B6E7871F1F31400071D278 /* LSMarqueeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSMarqueeView.h; sourceTree = "<group>"; };
+		51B6E7881F1F31400071D278 /* LSMarqueeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSMarqueeView.m; sourceTree = "<group>"; };
+		51B6E78A1F1F33DA0071D278 /* topup_banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topup_banner@2x.png"; sourceTree = "<group>"; };
+		51B6E78B1F1F33DA0071D278 /* topup_banner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topup_banner@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 		51B6E76E1F1F2FB50071D278 /* LSMarqueeView */ = {
 			isa = PBXGroup;
 			children = (
+				51B6E7861F1F31060071D278 /* LSMarqueeView */,
 				51B6E7721F1F2FB50071D278 /* AppDelegate.h */,
 				51B6E7731F1F2FB50071D278 /* AppDelegate.m */,
 				51B6E7751F1F2FB50071D278 /* ViewController.h */,
@@ -74,6 +82,17 @@
 				51B6E7701F1F2FB50071D278 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51B6E7861F1F31060071D278 /* LSMarqueeView */ = {
+			isa = PBXGroup;
+			children = (
+				51B6E78A1F1F33DA0071D278 /* topup_banner@2x.png */,
+				51B6E78B1F1F33DA0071D278 /* topup_banner@3x.png */,
+				51B6E7871F1F31400071D278 /* LSMarqueeView.h */,
+				51B6E7881F1F31400071D278 /* LSMarqueeView.m */,
+			);
+			path = LSMarqueeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +156,8 @@
 			files = (
 				51B6E77F1F1F2FB50071D278 /* LaunchScreen.storyboard in Resources */,
 				51B6E77C1F1F2FB50071D278 /* Assets.xcassets in Resources */,
+				51B6E78D1F1F33DA0071D278 /* topup_banner@3x.png in Resources */,
+				51B6E78C1F1F33DA0071D278 /* topup_banner@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51B6E7891F1F31400071D278 /* LSMarqueeView.m in Sources */,
 				51B6E7771F1F2FB50071D278 /* ViewController.m in Sources */,
 				51B6E7741F1F2FB50071D278 /* AppDelegate.m in Sources */,
 				51B6E7711F1F2FB50071D278 /* main.m in Sources */,
