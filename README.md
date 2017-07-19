@@ -37,5 +37,8 @@ self.marqueeView.clickBlock = ^(id sender){
 };
 ```
 
+## More
+[一个尴尬的轮子之跑马灯](https://www.lsrain.com/2017/07/19/iOS/一个尴尬的轮子之_跑马灯/)
+
 ## Example
 ![](example.gif)
