@@ -35,7 +35,6 @@
     labelTwo.text = @"☺ 这是一个广告标题2~~";
     labelTwo.textColor = [UIColor blackColor];
     
-    
     UILabel *labelThree = [UILabel new];
     labelThree.font = [UIFont systemFontOfSize:14];
     labelThree.text = @"☺ 这是一个广告标题3~~";
