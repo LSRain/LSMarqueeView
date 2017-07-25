@@ -12,7 +12,6 @@
 
 @property (nonatomic, assign) NSInteger seconds;
 @property (nonatomic, strong) UIView *backView;
-@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -20,21 +19,6 @@
 
 
 #pragma mark - Action
-
-- (void)beginShowAdd{
-    _timer.fireDate = [NSDate distantPast];
-}
-
-- (void)stopShowAdd{
-    _timer.fireDate = [NSDate distantFuture];
-}
-
-- (void)closeShowAdd{
-    if (_timer) {
-        [_timer invalidate];
-        _timer = nil;
-    }
-}
 
 -(void)labelClick:(UITapGestureRecognizer *)tap {
     if (self.clickBlock) {
@@ -74,41 +58,55 @@
     }];
 }
 
-#pragma mark - UI setup
+#pragma mark - 定时器start
 
-- (void)initUI{
-    _seconds = 0;
-    [self addSubview:self.backView];
-    __weak typeof(self) weakSelf = self;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:3.6f target:weakSelf selector:@selector(timerRepeat) userInfo:nil repeats:YES];
-    _timer.fireDate = [NSDate distantFuture];
+- (void)startCountdown {
+    // GCD Timer
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), 5 * NSEC_PER_SEC, 0); // 每5S
+    dispatch_source_set_event_handler(_timer, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self timerRepeat];
+            _seconds++;
+        });
+    });
+    dispatch_resume(_timer);
 }
 
+#pragma mark - UI init 
+
+- (void)initUI{
+    [self addSubview:self.backView];
+}
+
+#pragma mark - 定时执行方法
+
 - (void)timerRepeat {
-    !_seconds ? [self initLabels] : nil;
-    
     UILabel *targetLab = [self.lsLabelArr objectAtIndex:_seconds % self.lsLabelArr.count];
     [_backView bringSubviewToFront:targetLab];
-    [UIView animateWithDuration:.3f animations:^{
+    [UIView animateWithDuration:3.f animations:^{
         targetLab.frame = CGRectMake(10, self.backView.frame.origin.y, self.backView.frame.size.width, self.backView.frame.size.height);
     } completion:^(BOOL finished) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:.3f animations:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:1.f animations:^{
                 targetLab.frame = CGRectMake(10, -self.backView.frame.size.height, self.backView.frame.size.width, self.backView.frame.size.height);
             } completion:^(BOOL finished) {
                 targetLab.frame = CGRectMake(10, self.backView.frame.size.height, self.backView.frame.size.width, self.backView.frame.size.height);
             }];
         });
     }];
-    _seconds++;
 }
 
-#pragma self Life cycle
+#pragma mark - 自定义构造函数
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame andLableArr:(NSMutableArray *)labels
+{
     self = [super initWithFrame:frame];
     if (self) {
+        self.lsLabelArr = labels;
         [self initUI];
+        [self initLabels];
     }
     return self;
 }

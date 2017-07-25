@@ -18,6 +18,16 @@
 @implementation ViewController
 
 
+#pragma mark - self Life cycle
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self.marqueeView  startCountdown];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    dispatch_source_cancel(self.marqueeView.timer);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -27,7 +37,7 @@
     NSMutableArray *tempArr = @[].mutableCopy;
     UILabel *labelOne = [UILabel new];
     labelOne.font = [UIFont systemFontOfSize:14];
-    labelOne.text = @"☺ 这是一个广告标题1~~";
+    labelOne.text = @"☺ 这是一个广告标题1~";
     labelOne.textColor = [UIColor blackColor];
     
     UILabel *labelTwo = [UILabel new];
@@ -37,7 +47,7 @@
     
     UILabel *labelThree = [UILabel new];
     labelThree.font = [UIFont systemFontOfSize:14];
-    labelThree.text = @"☺ 这是一个广告标题3~~";
+    labelThree.text = @"☺ 这是一个广告标题3~~~";
     labelThree.textColor = [UIColor blackColor];
     
     [tempArr addObject:labelOne];
@@ -45,9 +55,7 @@
     [tempArr addObject:labelThree];
     // >>>>>> dataSorce >>>>>
     
-    self.marqueeView = [[LSMarqueeView alloc] initWithFrame:CGRectMake(10, 100, 354, 60)];
-    self.marqueeView.lsLabelArr = tempArr;
-    [self.marqueeView beginShowAdd];
+    self.marqueeView = [[LSMarqueeView alloc] initWithFrame:CGRectMake(10, 100, 354, 60) andLableArr:tempArr];
     [self.view addSubview:self.marqueeView];
     
     self.marqueeView.clickBlock = ^(id sender){

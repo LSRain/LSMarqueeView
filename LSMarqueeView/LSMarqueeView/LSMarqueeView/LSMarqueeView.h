@@ -10,22 +10,24 @@
 
 @interface LSMarqueeView : UIView
 
+@property (nonatomic, strong) dispatch_source_t timer;
+
 /// Label数组
 @property (nonatomic, strong) NSMutableArray<UILabel *> *lsLabelArr;
 /// 点击事件block
 @property(nonatomic,strong)void (^clickBlock)(id sender);
 
 /**
- 关闭定时器
+ 自定义构造函数
+
+ @param frame view frame
+ @param labels labels Array
+ @return Self
  */
-- (void)closeShowAdd;
-/**
- 停止定时器
- */
-- (void)stopShowAdd;
+- (instancetype)initWithFrame:(CGRect)frame andLableArr:(NSMutableArray *)labels;
 /**
  开启定时器
  */
-- (void)beginShowAdd;
+- (void)startCountdown;
 
 @end
