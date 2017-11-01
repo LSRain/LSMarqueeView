@@ -17,15 +17,22 @@
 
 @implementation ViewController
 
+- (void)stopMarquee{
+    dispatch_source_cancel(self.marqueeView.timer);
+}
+
+- (void)startMarquee{
+    [self.marqueeView  startCountdown];
+}
 
 #pragma mark - self Life cycle
 
 - (void)viewDidAppear:(BOOL)animated{
-    [self.marqueeView  startCountdown];
+    [self startMarquee];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-    dispatch_source_cancel(self.marqueeView.timer);
+    [self stopMarquee];
 }
 
 - (void)viewDidLoad {
@@ -61,6 +68,16 @@
     self.marqueeView.clickBlock = ^(id sender){
         NSLog(@"sender %@", sender);
     };
+    
+    UIButton *stopMarqueeBtn = [[UIButton alloc] initWithFrame:CGRectMake(210, 400, 60, 60)];
+    [stopMarqueeBtn setTitle:@"Stop" forState:UIControlStateNormal];
+    [self.view addSubview:stopMarqueeBtn];
+    [stopMarqueeBtn addTarget:self action:@selector(stopMarquee) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *startMarqueeBtn = [[UIButton alloc] initWithFrame:CGRectMake(210, 500, 60, 60)];
+    [startMarqueeBtn setTitle:@"Start" forState:UIControlStateNormal];
+    [self.view addSubview:startMarqueeBtn];
+    [startMarqueeBtn addTarget:self action:@selector(startMarquee) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
