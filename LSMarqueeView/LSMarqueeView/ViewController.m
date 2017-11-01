@@ -71,11 +71,15 @@
     
     UIButton *stopMarqueeBtn = [[UIButton alloc] initWithFrame:CGRectMake(210, 400, 60, 60)];
     [stopMarqueeBtn setTitle:@"Stop" forState:UIControlStateNormal];
+    [stopMarqueeBtn setTitleColor:[UIColor yellowColor] forState:UIControlStateHighlighted];
+    [stopMarqueeBtn setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:stopMarqueeBtn];
     [stopMarqueeBtn addTarget:self action:@selector(stopMarquee) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *startMarqueeBtn = [[UIButton alloc] initWithFrame:CGRectMake(210, 500, 60, 60)];
     [startMarqueeBtn setTitle:@"Start" forState:UIControlStateNormal];
+    [startMarqueeBtn setTitleColor:[UIColor yellowColor] forState:UIControlStateHighlighted];
+    [startMarqueeBtn setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:startMarqueeBtn];
     [startMarqueeBtn addTarget:self action:@selector(startMarquee) forControlEvents:UIControlEventTouchUpInside];
 }
