@@ -50,7 +50,7 @@ Turn on or off rotation
 ```
 
 ## Example
-![example](http://owggkxf9w.bkt.clouddn.com/example.gif)
+![example](example.gif)
 
 ## See More
 [一个尴尬的轮子之跑马灯](https://www.lsrain.com/2017/07/19/iOS/一个尴尬的轮子之_跑马灯/)
