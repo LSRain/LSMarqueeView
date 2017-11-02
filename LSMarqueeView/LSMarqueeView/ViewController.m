@@ -40,7 +40,8 @@
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    // >>>>>> dataSorce >>>>>
+#pragma mark dataSorce
+    
     NSMutableArray *tempArr = @[].mutableCopy;
     UILabel *labelOne = [UILabel new];
     labelOne.font = [UIFont systemFontOfSize:14];
@@ -60,7 +61,8 @@
     [tempArr addObject:labelOne];
     [tempArr addObject:labelTwo];
     [tempArr addObject:labelThree];
-    // >>>>>> dataSorce >>>>>
+    
+#pragma mark Set frame to marqueeView
     
     self.marqueeView = [[LSMarqueeView alloc] initWithFrame:CGRectMake(10, 100, 354, 60) andLableArr:tempArr];
     [self.view addSubview:self.marqueeView];
