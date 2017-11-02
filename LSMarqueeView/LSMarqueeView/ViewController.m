@@ -44,17 +44,17 @@
     NSMutableArray *tempArr = @[].mutableCopy;
     UILabel *labelOne = [UILabel new];
     labelOne.font = [UIFont systemFontOfSize:14];
-    labelOne.text = @"☺ 这是一个广告标题1~";
+    labelOne.text = @"🤩这是第一个广告内容~";
     labelOne.textColor = [UIColor blackColor];
     
     UILabel *labelTwo = [UILabel new];
     labelTwo.font = [UIFont systemFontOfSize:14];
-    labelTwo.text = @"☺ 这是一个广告标题2~~";
+    labelTwo.text = @"😍这是第二个广告内容~~";
     labelTwo.textColor = [UIColor blackColor];
     
     UILabel *labelThree = [UILabel new];
     labelThree.font = [UIFont systemFontOfSize:14];
-    labelThree.text = @"☺ 这是一个广告标题3~~~";
+    labelThree.text = @"😜这是第三个广告内容~~~";
     labelThree.textColor = [UIColor blackColor];
     
     [tempArr addObject:labelOne];
